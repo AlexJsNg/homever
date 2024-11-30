@@ -51,6 +51,5 @@ export const fetchProfileImage = async () => {
       profileImage: true,
     },
   });
-  console.log("profile?.profileImage = ", profile?.profileImage)
   return profile?.profileImage;
 };
