@@ -1238,12 +1238,7 @@ export const updateProfileAction = async (
 };
 ```
 
-
-
-
-TODO ALEX NEXT
 ### Alternative Error Handling
-
 actions.ts
 
 ```ts
@@ -1284,6 +1279,8 @@ export const updateProfileAction = async (
 };
 ```
 
+
+TODO ALEX NEXT
 ### ValidateWithZodSchema
 
 schemas.ts
