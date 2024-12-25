@@ -1279,8 +1279,6 @@ export const updateProfileAction = async (
 };
 ```
 
-
-TODO ALEX NEXT
 ### ValidateWithZodSchema
 
 schemas.ts
@@ -1318,6 +1316,7 @@ await db.profile.update({
 });
 ```
 
+TODO ALEX NEXT
 ### ImageInput
 
 components/form/ImageInput.tsx
