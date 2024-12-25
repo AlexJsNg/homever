@@ -1,25 +1,26 @@
 "use server";
 
-import { profileSchema, validateWithZodSchema } from "./schemas";
+import { imageSchema, profileSchema, validateWithZodSchema } from "./schemas";
 
-import db from './db';
-import { auth, clerkClient, currentUser } from '@clerk/nextjs/server';
-import { revalidatePath } from 'next/cache';
-import { redirect } from 'next/navigation';
+import db from "./db";
+import { auth, clerkClient, currentUser } from "@clerk/nextjs/server";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
+import { uploadImage } from "./supabase";
 
 const getAuthUser = async () => {
   const user = await currentUser();
   if (!user) {
-    throw new Error('You must be logged in to access this route');
+    throw new Error("You must be logged in to access this route");
   }
-  if (!user.privateMetadata.hasProfile) redirect('/profile/create');
+  if (!user.privateMetadata.hasProfile) redirect("/profile/create");
   return user;
 };
 
 const renderError = (error: unknown): { message: string } => {
   console.log(error);
   return {
-    message: error instanceof Error ? error.message : 'An error occurred',
+    message: error instanceof Error ? error.message : "An error occurred",
   };
 };
 
@@ -29,7 +30,7 @@ export const createProfileAction = async (
 ) => {
   try {
     const user = await currentUser();
-    if (!user) throw new Error('Please login to create a profile');
+    if (!user) throw new Error("Please login to create a profile");
 
     const rawData = Object.fromEntries(formData);
     const validatedFields = validateWithZodSchema(profileSchema, rawData);
@@ -38,7 +39,7 @@ export const createProfileAction = async (
       data: {
         clerkId: user.id,
         email: user.emailAddresses[0].emailAddress,
-        profileImage: user.imageUrl ?? '',
+        profileImage: user.imageUrl ?? "",
         ...validatedFields,
       },
     });
@@ -50,7 +51,7 @@ export const createProfileAction = async (
   } catch (error) {
     return renderError(error);
   }
-  redirect('/');
+  redirect("/");
 };
 
 export const fetchProfileImage = async () => {
@@ -76,7 +77,7 @@ export const fetchProfile = async () => {
       clerkId: user.id,
     },
   });
-  if (!profile) return redirect('/profile/create');
+  if (!profile) return redirect("/profile/create");
   return profile;
 };
 
@@ -95,8 +96,33 @@ export const updateProfileAction = async (
       },
       data: validatedFields,
     });
+    revalidatePath("/profile");
+    return { message: "Profile updated successfully" };
+  } catch (error) {
+    return renderError(error);
+  }
+};
+
+export const updateProfileImageAction = async (
+  prevState: any,
+  formData: FormData
+) => {
+  const user = await getAuthUser();
+  try {
+    const image = formData.get('image') as File;
+    const validatedFields = validateWithZodSchema(imageSchema, { image });
+    const fullPath = await uploadImage(validatedFields.image);
+    
+    await db.profile.update({
+      where: {
+        clerkId: user.id,
+      },
+      data: {
+        profileImage: fullPath,
+      },
+    });
     revalidatePath('/profile');
-    return { message: 'Profile updated successfully' };
+    return { message: 'Profile image updated successfully' };
   } catch (error) {
     return renderError(error);
   }
