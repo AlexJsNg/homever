@@ -24,6 +24,6 @@ async function PropertiesContainer({
         );
     }
 
-    return <PropertiesList />;
+    return <PropertiesList properties={properties} />;
 }
 export default PropertiesContainer;
