@@ -35,3 +35,22 @@ export function SubmitButton({
     </Button>
   );
 }
+
+import { SignInButton } from '@clerk/nextjs';
+import { FaRegHeart, FaHeart } from 'react-icons/fa';
+
+export const CardSignInButton = () => {
+  return (
+    <SignInButton mode='modal'>
+      <Button
+        type='button'
+        size='icon'
+        variant='outline'
+        className='p-2 cursor-pointer'
+        asChild
+      >
+        <FaRegHeart />
+      </Button>
+    </SignInButton>
+  );
+};
