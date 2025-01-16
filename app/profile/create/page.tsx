@@ -3,7 +3,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import FormInput from '@/components/form/FormInput';
 import FormContainer from '@/components/form/FormContainer';
-import { SubmitButton } from '@/components/form/Button';
+import { SubmitButton } from '@/components/form/Buttons';
 import { createProfileAction } from '@/utils/actions';
 import { currentUser } from '@clerk/nextjs/server';
 import { redirect } from 'next/navigation';
