@@ -28,7 +28,10 @@ model Property {
   tagline     String
   category    String
   image       String
+
+  // TODO Alex - extend to country, city, address and reflect in Leaflet afterwards
   country     String
+
   description String
   price       Int
   guests      Int
