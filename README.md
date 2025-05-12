@@ -1,6 +1,9 @@
 # Homever 🏡
 **Homever** is a modern web application built with **Next.js 14**, **React 18**, and **Prisma**. Users can search and book accommodations worldwide, create and manage their own listings, leave reviews, and keep track of their bookings and favorite places.
 ---
+## DEMO
+[homever.vercel.app](https://homever.vercel.app/)
+---
 ## 🚀 Features
 - 🔐 Authentication and authorization via [Clerk](https://clerk.dev)
 - 🏘️ Search and rent accommodations worldwide
@@ -57,33 +60,3 @@ User profile page where you can update personal information.
 
 ## 🎨 Theme Switching
 The application supports **switching between light and dark themes**. Theme settings are preserved between sessions for better UX.
-
-## 📁 Project Structure (Main)
-```
-/app
-  /bookings
-  /favorites
-  /profile
-  /properties
-  /rentals
-  /reviews
-  /favicon.ico
-  /globals.css
-  /layout.tsx
-  /page.tsx
-  /providers.tsx
-  /theme-provider.tsx
-/components
-  /booking
-  /card
-  /form
-  /home
-  /navbar
-  /properties
-  /reviews
-  /ui 
-/hooks
-/lib   
-/prisma
-/utils
-```
