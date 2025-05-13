@@ -21,6 +21,16 @@ Key benefits:
 - Session management and user metadata via Clerk
 - Seamless integration with Next.js App Router
 ---
+## Vercel Hosting
+This project is hosted on Vercel, providing:
+
+- Zero-config deployment directly from GitHub repository
+- Global CDN for lightning-fast content delivery
+- Automatic HTTPS with SSL certificates included
+- Preview deployments for each pull request
+- Serverless functions support with Node.js runtime
+- Real-time analytics and performance monitoring
+---
 ## 📦 Tech Stack
 - **Next.js** 14.2.10
 - **React** 18
