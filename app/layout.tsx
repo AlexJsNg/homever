@@ -19,7 +19,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'HomeAway',
+  title: 'Homever',
   description: 'Feel at home, away from home.',
 };
 
