@@ -1,8 +1,8 @@
 # Homever 🏡
-**Homever** is a modern web application built with **Next.js 14**, **React 18**, and **Prisma**. Users can search and book accommodations worldwide, create and manage their own listings, leave reviews, and keep track of their bookings and favorite places.
+**Homever** is a modern web application built with **Next.js 14**, **React 18**, and **Supabase**. Users can search and book accommodations worldwide, create and manage their own listings, leave reviews, and keep track of their bookings and favorite places.
 ---
 ## DEMO
-[homever.vercel.app](https://homever.vercel.app/)
+[homever.vercel.app](https://homever.vercel.app/) - since the project relies on free tiers of popular services (Supabase, Clerk, Prisma, Vercel), its performance may occasionally be slightly slower than expected
 ---
 ## 🚀 Features
 - 🔐 Authentication and authorization via [Clerk](https://clerk.dev)
@@ -47,6 +47,8 @@ Before running, ensure you have:
 - PostgreSQL (or another Prisma-supported data source)
 ---
 ## 📄 Pages
+To access all the features of the app, please register by selecting the "Register" option in the top right menu.
+---
 ### 🏠 `Home`  
 The main page with a list of available real estate. Users can filter offers.
 
