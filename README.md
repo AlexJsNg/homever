@@ -72,3 +72,9 @@ User profile page where you can update personal information.
 
 ## 🎨 Theme Switching
 The application supports **switching between light and dark themes**. Theme settings are preserved between sessions for better UX.
+
+## 🚧 TODO
+- Implement a complete checkout process.
+- Conduct load testing.
+- Perform thorough stability checks (potential server errors?).
+- Optimize middleware and Clerk bridge.
