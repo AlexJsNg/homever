@@ -1,6 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 
-const bucket = 'homever-storage';
+const bucket = 'home-away-draft';
 
 // Create a single supabase client for interacting with your database
 export const supabase = createClient(
@@ -18,6 +18,7 @@ export const uploadImage = async (image: File) => {
     .upload(newName, image, {
       cacheControl: '3600',
     });
+  if (error) console.error('Supabase upload error:', JSON.stringify(error));
   if (!data) throw new Error('Image upload failed');
   return supabase.storage.from(bucket).getPublicUrl(newName).data.publicUrl;
 };
